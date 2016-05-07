@@ -1,0 +1,17 @@
+  	<style>
+  		html, body {height:100%; margin:0px;}
+	  	#section1 {padding-top:50px;height:100%;color: #fff; background-color: #1E88E5;}
+	  	#section2 {padding-top:50px;height:100%;color: #fff; background-color: #673ab7;}
+	  	#section3 {padding-top:50px;height:100%;color: #fff; background-color: #ff9800;}
+	  	.navbar {margin: 0; border-radius: 0;}
+	  	.jumbotron {margin: 0; background-color: orange; text-align: center; padding-top: 10px; padding-bottom: 10px}
+	  	.affix {
+		    top:0;
+		    width: 100%;
+		    z-index: 9999 !important;
+		}
+		.affix ~ .container-fluid {
+	    	position: relative;
+	    	top: 50px;
+	    }
+	</style>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bootstrap 1st Demo webpage</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+  	<style>
+  		html, body {height:100%; margin:0px;}
+	  	#section1 {padding-top:50px;height:100%;color: #fff; background-color: #1E88E5;}
+	  	#section2 {padding-top:50px;height:100%;color: #fff; background-color: #673ab7;}
+	  	#section3 {padding-top:50px;height:100%;color: #fff; background-color: #ff9800;}
+	  	.navbar {margin: 0; border-radius: 0;}
+	  	.jumbotron {margin: 0; background-color: orange; text-align: center; padding-top: 10px; padding-bottom: 10px}
+	  	.affix {
+		    top:0;
+		    width: 100%;
+		    z-index: 9999 !important;
+		}
+		.affix ~ .container-fluid {
+	    	position: relative;
+	    	top: 50px;
+	    }
+	</style>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<div class="jumbotron">
+		<h1>Snigdhaman Chatterjee</h1>
+	</div>
+	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="120">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Snigdhaman Chatterjee</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#section1">Page 1</a></li>
+				<li><a href="#section2">Page 2</a></li>
+				<li><a href="#section3">Page 3</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div id="section1" class="container-fluid" ng-app="">
+    	<h1>Section 1</h1>
+	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+	    <p>{{1 + 2}}</p>
+	</div>
+	<div id="section2" class="container-fluid">
+    	<h1>Section 2</h1>
+	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+	</div>
+		<div id="section3" class="container-fluid">
+    	<h1>Section 3</h1>
+	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+	</div>
+</body>
+</html>
