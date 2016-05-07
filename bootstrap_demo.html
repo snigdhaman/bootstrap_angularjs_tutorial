@@ -8,25 +8,10 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
   	<style>
   		html, body {height:100%; margin:0px;}
-	  	#section1 {padding-top:50px;height:100%;color: #fff; background-color: #1E88E5;}
-	  	#section2 {padding-top:50px;height:100%;color: #fff; background-color: #673ab7;}
-	  	#section3 {padding-top:50px;height:100%;color: #fff; background-color: #ff9800;}
-	  	.navbar {margin: 0; border-radius: 0;}
-	  	.jumbotron {margin: 0; background-color: orange; text-align: center; padding-top: 10px; padding-bottom: 10px}
-	  	.affix {
-		    top:0;
-		    width: 100%;
-		    z-index: 9999 !important;
-		}
-		.affix ~ .container-fluid {
-	    	position: relative;
-	    	top: 50px;
-	    }
-	</style>
-
+  	</style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -36,22 +21,43 @@
 	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="120">
 		<div class="container-fluid">
 			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span> 
+			      </button>
 				<a class="navbar-brand" href="#">Snigdhaman Chatterjee</a>
 			</div>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#section1">Page 1</a></li>
-				<li><a href="#section2">Page 2</a></li>
-				<li><a href="#section3">Page 3</a></li>
-			</ul>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#section1">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+					<li><a href="#section2">Register <span class="glyphicon glyphicon-link"></span></a></li>
+					<li><a href="#section3">Help <span class="glyphicon glyphicon-eye-open"></span></a></li>
+				</ul>
+			</div>
 		</div>
 	</nav>
-	<div id="section1" class="container-fluid" ng-app="">
-    	<h1>Section 1</h1>
-	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-	    <p>{{1 + 2}}</p>
+	<div id="section1" class="container-fluid img-fit" data-speed="2">
+    	<h1>Welcome to the login page</h1>
+	    <blockquote>This is a tutorial page to try out form bindings with angular js using ng-model directives!!</blockquote>
+	    <form role="form">
+		    <div class="form-group">
+		    	<label for="usr" class="col-sm-1">Name:</label>
+		    	<div class="col-sm-2">
+		    		<input type="text" class="form-control" id="usr" placeholder="Name">
+		    	</div>
+		    </div>
+			<br/>
+			<br/>
+		    <div class="form-group">
+		    	<label for="pwd" class="col-sm-1">Password:</label>
+		    	<div class="col-sm-2">
+		    		<input type="password" class="form-control" id="pwd" placeholder="Password">
+		    	</div>
+		    </div>
+		</form>
 	</div>
-	<div id="section2" class="container-fluid">
+	<div id="section2" class="container-fluid" data-speed="10">
     	<h1>Section 2</h1>
 	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
 	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>

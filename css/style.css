@@ -1,6 +1,12 @@
   	<style>
   		html, body {height:100%; margin:0px;}
-	  	#section1 {padding-top:50px;height:100%;color: #fff; background-color: #1E88E5;}
+	  	#section1 {padding-top : 50px ;
+	  			   height : 100% ;
+	  			   color : #fff ;
+	  			   background-image : url("photo-1429051883746-afd9d56fbdaf 2.jpg");
+	  			   background-attachment: fixed;
+	  			   background-size: cover;
+	  			   margin-top: -10px; }
 	  	#section2 {padding-top:50px;height:100%;color: #fff; background-color: #673ab7;}
 	  	#section3 {padding-top:50px;height:100%;color: #fff; background-color: #ff9800;}
 	  	.navbar {margin: 0; border-radius: 0;}
@@ -14,4 +20,12 @@
 	    	position: relative;
 	    	top: 50px;
 	    }
+	    .form-inline .form-group {
+		    margin-left: 0;
+		    margin-right: 0;
+		}
+		.img-fit {
+			width: 100%;
+			height: auto;
+		}
 	</style>
