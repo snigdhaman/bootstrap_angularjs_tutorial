@@ -17,7 +17,7 @@ app.controller ("scrollCtrl", function($location, $anchorScroll){
 app.controller ("NinjaController", ['$scope', function($scope){
 
 	$scope.removeNinja = function (ninja){
-		$scope.ninjas.splice($scope.ninjas.indexOf(ninja),1);
+		$scope.ninjas.splice($scope.ninjas.indexOf(ninja), 1);
 	};
 
 	$scope.ninjas = [
@@ -25,7 +25,9 @@ app.controller ("NinjaController", ['$scope', function($scope){
 		{name: 'Naruto Uzumaki', belt: 'Orange', rate: 25000, available: true},
 		{name: 'Sasuke Uchiha', belt: 'Blue', rate: 23000, available: true},
 		{name: 'Kakashi Hatake', belt: 'Green', rate: 30000, available: true},
+		{name: 'Kasumi Hayabusa', belt: 'White', rate: 50000, available: true},
+		{name: 'Sakura Haruno', belt: 'Pink', rate: 15000, available: true},
+		{name: 'Ino Yamanaka', belt: 'Purple', rate: 10000, available: true},
+		{name: 'Minato Namikaze', belt: 'Red', rate: 100000, available: true},
 	];
 }]);
-
-var user = [];
