@@ -15,12 +15,16 @@ app.controller ("scrollCtrl", function($location, $anchorScroll){
 });
 
 app.controller ("NinjaController", ['$scope', function($scope){
-	$scope.message = "Yo! Yo!";
+
+	$scope.removeNinja = function (ninja){
+		$scope.ninjas.splice($scope.ninjas.indexOf(ninja),1);
+	};
+
 	$scope.ninjas = [
-		{name: 'Ryu Hayabusa', belt: 'black', rate: 27000, available: true},
-		{name: 'Naruto Uzumaki', belt: 'orange', rate: 25000, available: true},
-		{name: 'Sasuke Uchiha', belt: 'blue', rate: 23000, available: false},
-		{name: 'Kakashi Hatake', belt: 'green', rate: 30000, available: true},
+		{name: 'Ryu Hayabusa', belt: 'Black', rate: 27000, available: true},
+		{name: 'Naruto Uzumaki', belt: 'Orange', rate: 25000, available: true},
+		{name: 'Sasuke Uchiha', belt: 'Blue', rate: 23000, available: true},
+		{name: 'Kakashi Hatake', belt: 'Green', rate: 30000, available: true},
 	];
 }]);
 

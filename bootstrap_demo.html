@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="demo">
 <head>
-	<title>Bootstrap 1st Demo webpage</title>
+	<title>Ninja App</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -17,9 +17,9 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<div class="jumbotron">
-		<h1>Snigdhaman Chatterjee</h1>
+		<h1>The Ninja App</h1>
 	</div>
-		<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="120">
+		<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="110">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -31,19 +31,21 @@
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#section1">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
-						<li><a href="#section2">Register <span class="glyphicon glyphicon-link"></span></a></li>
+						<li><a href="#section1">Intro <span class="glyphicon glyphicon-log-in"></span></a></li>
+						<li><a href="#section2">Order Ninja <span class="glyphicon glyphicon-link"></span></a></li>
 						<li><a href="#section3">Help <span class="glyphicon glyphicon-eye-open"></span></a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<div id="section1" class="container-fluid">
-	    	<h1>Welcome to the login page</h1>
+	    	<h1>Welcome to the Intro page</h1>
 		    <blockquote>This is a tutorial page to try out form bindings with angular js using ng-model directives!!</blockquote>
 		</div>
 		<div id="section2" class="container-fluid">
-			<form role="form" ng-submit="submitClick(user)" ng-controller="inputCtrl">
+			<br/>
+			<br/>
+			<!--<form role="form" ng-submit="submitClick(user)" ng-controller="inputCtrl">
 				<div class="form-group">
 					<div class="row">
 						<div class="col-sm-1">
@@ -71,25 +73,49 @@
 				<br/>
 				<blockquote>Name: {{user.name}} Password: {{user.pwd}}</blockquote>
 				<div ng-repeat="usr in user"> Name: {{usr.name}} Password: {{usr.pwd}} </div>
-			</form>
+			</form>-->
 			<div ng-controller="NinjaController">
-			<div class="col-sm-4">
-				<input type="text" class="form-control" placeholder="Search ninjas by name" ng-model="search" id="searchBar">
-				<span class="glyphicon glyphicon-search form-control-feedback" style="color: grey" offset=-10px></span>
-			</div>
-				<br/>
-				<br/>
+				<div class="row">
+					<div class="col-sm-4">
+						<input type="text" class="form-control" placeholder="Search ninjas by name" ng-model="search" id="searchBar">
+						<span class="glyphicon glyphicon-search form-control-feedback" style="color: grey" offset=-10px></span>
+					</div>
+					<div class="btn-group">
+							<button type="button" class="btn btn-warning" ng-click="order = 'name'">Sort by name</button>
+							<button type="button" class="btn btn-warning" ng-click="order = 'rate'">Sort by rate</button>
+							<button type="button" class="btn btn-warning" ng-click="order = 'belt'">Sort by belt</button>
+					</div>
+				</div>
 				<br/>
 				<br/>
 					<div class="form-group">
 						<ul class="list-group">
-							<li class="list-group-item list-group-item-warning" ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search" ng-show="ninja.available">
+							<li class="list-group-item list-group-item-warning">
+								<div class="row">
+									<div class="col-sm-1">
+										<b>Name</b>
+									</div>
+									<div class="col-sm-1">
+										<b>Rate</b>
+									</div>
+									<div class="col-sm-1">
+										<b>Belt</b>
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item list-group-item-warning" ng-repeat="ninja in ninjas | orderBy: order | filter: search" ng-show="ninja.available">
 								<div class="row">
 									<div class="col-sm-1">
 										{{ninja.name}}
 									</div>
 									<div class="col-sm-1">
 										{{ninja.rate | currency: 'Rs.'}}
+									</div>
+									<div class="col-sm-1">
+										{{ninja.belt}} Belt
+									</div>
+									<div class="col-sm-1">
+										<button type="button" class="btn btn-danger" ng-click="removeNinja(ninja)"><span class="glyphicon glyphicon-remove"></span></button>
 									</div>
 								</div>
 							</li>
@@ -99,6 +125,8 @@
 		</div>
 		<div id="section3" class="container-fluid">
 			<h1>Section 3</h1>
+			<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+			<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
 			<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
 			<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
 		</div>
