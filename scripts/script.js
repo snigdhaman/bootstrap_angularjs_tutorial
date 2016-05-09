@@ -20,6 +20,16 @@ app.controller ("NinjaController", ['$scope', function($scope){
 		$scope.ninjas.splice($scope.ninjas.indexOf(ninja), 1);
 	};
 
+	$scope.addNewNinja = function () {
+		$scope.ninjas.push({
+			name: $scope.newNinja.name,
+			rate: parseInt($scope.newNinja.rate),
+			belt: $scope.newNinja.belt,
+			available: true
+		});
+		$scope.newNinja = {};
+	};
+
 	$scope.ninjas = [
 		{name: 'Ryu Hayabusa', belt: 'Black', rate: 27000, available: true},
 		{name: 'Naruto Uzumaki', belt: 'Orange', rate: 25000, available: true},

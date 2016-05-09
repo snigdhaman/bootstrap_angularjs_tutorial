@@ -96,7 +96,7 @@
 										<b>Name</b>
 									</div>
 									<div class="col-sm-1">
-										<b>Rate</b>
+										<b>Rate per hour</b>
 									</div>
 									<div class="col-sm-1">
 										<b>Belt</b>
@@ -118,6 +118,24 @@
 										<button type="button" class="btn btn-danger" ng-click="removeNinja(ninja)"><span class="glyphicon glyphicon-remove"></span></button>
 									</div>
 								</div>
+							</li>
+							<li class="list-group-item list-group-item-warning">
+								<form role="form" ng-submit="addNewNinja()">
+								<div class="row">
+									<div class="col-sm-1 form-group">
+										<input type="text" class="form-control" placeholder="Name" ng-model="newNinja.name" id="nameBar">
+									</div>
+									<div class="col-sm-1 form-group">
+										<input type="text" class="form-control" placeholder="Rate" ng-model="newNinja.rate" id="rateBar">
+									</div>
+									<div class="col-sm-1 form-group">
+										<input type="text" class="form-control" placeholder="Belt" ng-model="newNinja.belt" id="beltBar">
+									</div>
+									<div class="col-sm-1">
+										<button type="submit" class="btn btn-success">Add Ninja</button>
+									</div>
+								</div>
+								</form>
 							</li>
 						</ul>
 				</div>
