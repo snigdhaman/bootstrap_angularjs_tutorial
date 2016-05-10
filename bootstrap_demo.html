@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="demo">
 <head>
 	<title>Bootstrap 1st Demo webpage</title>
 	<meta charset="utf-8">
@@ -9,6 +9,7 @@
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   	<link rel="stylesheet" type="text/css" href="css/style.css">
+  	<script src="scripts/script.js"></script>
   	<style>
   		html, body {height:100%; margin:0px;}
   	</style>
@@ -18,54 +19,88 @@
 	<div class="jumbotron">
 		<h1>Snigdhaman Chatterjee</h1>
 	</div>
-	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="120">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span> 
-			      </button>
-				<a class="navbar-brand" href="#">Snigdhaman Chatterjee</a>
+		<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="120">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+							<span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+				      <span class="icon-bar"></span>
+			    </button>
+					<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#section1">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
+						<li><a href="#section2">Register <span class="glyphicon glyphicon-link"></span></a></li>
+						<li><a href="#section3">Help <span class="glyphicon glyphicon-eye-open"></span></a></li>
+					</ul>
+				</div>
 			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#section1">Login <span class="glyphicon glyphicon-log-in"></span></a></li>
-					<li><a href="#section2">Register <span class="glyphicon glyphicon-link"></span></a></li>
-					<li><a href="#section3">Help <span class="glyphicon glyphicon-eye-open"></span></a></li>
-				</ul>
+		</nav>
+		<div id="section1" class="container-fluid">
+	    	<h1>Welcome to the login page</h1>
+		    <blockquote>This is a tutorial page to try out form bindings with angular js using ng-model directives!!</blockquote>
+		</div>
+		<div id="section2" class="container-fluid">
+			<form role="form" ng-submit="submitClick(user)" ng-controller="inputCtrl">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-1">
+							<label for="usr" class="col-sm-1">Name:</label>
+						</div>
+						<div class="col-sm-2">
+							<input type="text" class="form-control" id="usr" placeholder="Name" ng-model="user.name" required>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-1">
+							<label for="pwd" class="col-sm-1">Password:</label>
+						</div>
+						<div class="col-sm-2">
+							<input type="password" class="form-control" id="pwd" placeholder="Password" ng-model="user.pwd" required>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<input type="submit" class="btn btn-info col-sm-offset-1" padding="100px" value="Login">
+				<br/>
+				<br/>
+				<blockquote>Name: {{user.name}} Password: {{user.pwd}}</blockquote>
+				<div ng-repeat="usr in user"> Name: {{usr.name}} Password: {{usr.pwd}} </div>
+			</form>
+			<div ng-controller="NinjaController">
+			<div class="col-sm-4">
+				<input type="text" class="form-control" placeholder="Search ninjas by name" ng-model="search" id="searchBar">
+				<span class="glyphicon glyphicon-search form-control-feedback" style="color: grey" offset=-10px></span>
+			</div>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+					<div class="form-group">
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-warning" ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search" ng-show="ninja.available">
+								<div class="row">
+									<div class="col-sm-1">
+										{{ninja.name}}
+									</div>
+									<div class="col-sm-1">
+										{{ninja.rate | currency: 'Rs.'}}
+									</div>
+								</div>
+							</li>
+						</ul>
+				</div>
 			</div>
 		</div>
-	</nav>
-	<div id="section1" class="container-fluid img-fit" data-speed="2">
-    	<h1>Welcome to the login page</h1>
-	    <blockquote>This is a tutorial page to try out form bindings with angular js using ng-model directives!!</blockquote>
-	    <form role="form">
-		    <div class="form-group">
-		    	<label for="usr" class="col-sm-1">Name:</label>
-		    	<div class="col-sm-2">
-		    		<input type="text" class="form-control" id="usr" placeholder="Name">
-		    	</div>
-		    </div>
-			<br/>
-			<br/>
-		    <div class="form-group">
-		    	<label for="pwd" class="col-sm-1">Password:</label>
-		    	<div class="col-sm-2">
-		    		<input type="password" class="form-control" id="pwd" placeholder="Password">
-		    	</div>
-		    </div>
-		</form>
-	</div>
-	<div id="section2" class="container-fluid" data-speed="10">
-    	<h1>Section 2</h1>
-	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-	</div>
 		<div id="section3" class="container-fluid">
-    	<h1>Section 3</h1>
-	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-	    <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-	</div>
+			<h1>Section 3</h1>
+			<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+			<p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+		</div>
 </body>
 </html>
