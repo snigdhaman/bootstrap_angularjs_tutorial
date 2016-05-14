@@ -1,20 +1,47 @@
-var app = angular.module ("demo", []);
+var app = angular.module ("demo", ['ngRoute', 'ngAnimate']);
 
-app.controller ("inputCtrl", function($scope){
-	$scope.submitClick = function (object) {
-		$scope.user.push(object);
-		object = {};
+app.config (['$routeProvider', function($routeProvider){
+	$routeProvider
+		.when('/home', {
+			templateUrl: 'views/intro.html',
+			controller: 'NinjaController'
+		})
+		.when('/section1', {
+			redirectTo: '/home'
+		})
+		.when('/section2', {
+			templateUrl: 'views/ninjaList.html',
+			controller: 'NinjaController'
+		})
+		.when('/section3', {
+			templateUrl: 'views/help.html',
+		})
+		.otherwise({
+			redirectTo: '/home'
+		});
+}]);
+
+app.directive ('randomNinja', [function(){
+	return {
+		restrict: 'E',
+		scope: {
+			ninjas: "=",
+			title: "="
+		},
+		templateUrl: 'views/randomNinja.html',
+		controller: function($scope){
+			var watcher = $scope.$watch('ninjas', function() {
+    		if($scope.ninjas === undefined) return;
+				$scope.random = Math.floor(Math.random() * $scope.ninjas.length);
+    		watcher();
+			})
+		},
+		transclude: true,
+		replace: true
 	};
-});
+}]);
 
-app.controller ("scrollCtrl", function($location, $anchorScroll){
-	this.scrollTo = function (scrollElement) {
-		$location.hash(scrollElement);
-		$anchorScroll();
-	}
-});
-
-app.controller ("NinjaController", ['$scope', function($scope){
+app.controller ("NinjaController", ['$scope','$http', function($scope, $http){
 
 	$scope.removeNinja = function (ninja){
 		$scope.ninjas.splice($scope.ninjas.indexOf(ninja), 1);
@@ -30,14 +57,11 @@ app.controller ("NinjaController", ['$scope', function($scope){
 		$scope.newNinja = {};
 	};
 
-	$scope.ninjas = [
-		{name: 'Ryu Hayabusa', belt: 'Black', rate: 27000, available: true},
-		{name: 'Naruto Uzumaki', belt: 'Orange', rate: 25000, available: true},
-		{name: 'Sasuke Uchiha', belt: 'Blue', rate: 23000, available: true},
-		{name: 'Kakashi Hatake', belt: 'Green', rate: 30000, available: true},
-		{name: 'Kasumi Hayabusa', belt: 'White', rate: 50000, available: true},
-		{name: 'Sakura Haruno', belt: 'Pink', rate: 15000, available: true},
-		{name: 'Ino Yamanaka', belt: 'Purple', rate: 10000, available: true},
-		{name: 'Minato Namikaze', belt: 'Red', rate: 100000, available: true},
-	];
+	$http.get('data/ninjas.json').success(function(data){
+		$scope.ninjas = data;
+	});
+
+	$scope.removeAll = function () {
+		$scope.ninjas = [];
+	};
 }]);

@@ -1,0 +1,103 @@
+<div id="section2" class="container-fluid">
+  <br/>
+  <br/>
+  <!--<form role="form" ng-submit="submitClick(user)" ng-controller="inputCtrl">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-1">
+          <label for="usr" class="col-sm-1">Name:</label>
+        </div>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" id="usr" placeholder="Name" ng-model="user.name" required>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-1">
+          <label for="pwd" class="col-sm-1">Password:</label>
+        </div>
+        <div class="col-sm-2">
+          <input type="password" class="form-control" id="pwd" placeholder="Password" ng-model="user.pwd" required>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <input type="submit" class="btn btn-info col-sm-offset-1" padding="100px" value="Login">
+    <br/>
+    <br/>
+    <blockquote>Name: {{user.name}} Password: {{user.pwd}}</blockquote>
+    <div ng-repeat="usr in user"> Name: {{usr.name}} Password: {{usr.pwd}} </div>
+  </form>-->
+    <div class="row">
+      <div class="col-sm-4">
+        <input type="text" class="form-control" placeholder="Search ninjas by name" ng-model="search" id="searchBar">
+        <span class="glyphicon glyphicon-search form-control-feedback" style="color: grey" offset=-10px></span>
+      </div>
+      <div class="btn-group">
+          <button type="button" class="btn btn-warning" ng-click="order = 'name'">Sort by name</button>
+          <button type="button" class="btn btn-warning" ng-click="order = 'rate'">Sort by rate</button>
+          <button type="button" class="btn btn-warning" ng-click="order = 'belt'">Sort by belt</button>
+      </div>
+    </div>
+    <br/>
+    <br/>
+      <div class="form-group">
+        <ul class="list-group" id="ninja-list">
+          <li class="list-group-item list-group-item-warning">
+            <div class="row">
+              <div class="col-sm-1 col-sm-offset-1">
+                <b>Name</b>
+              </div>
+              <div class="col-sm-1">
+                <b>Rate per hour</b>
+              </div>
+              <div class="col-sm-1">
+                <b>Belt</b>
+              </div>
+              <div class="col-sm-1">
+                <button type="button" class="btn btn-danger" ng-click="removeAll()">Remove All Ninjas</button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item list-group-item-warning" ng-repeat="ninja in ninjas | orderBy: order | filter: {name: search}" ng-show="ninja.available">
+            <div class="row">
+              <div class="col-sm-1">
+                <img ng-src="{{ninja.thumbnail}}" ng-show="ninja.thumbnail" class="thumb"/>
+              </div>
+              <div class="col-sm-1">
+                {{ninja.name}}
+              </div>
+              <div class="col-sm-1">
+                {{ninja.rate | currency: 'Rs.'}}
+              </div>
+              <div class="col-sm-1">
+                {{ninja.belt}} Belt
+              </div>
+              <div class="col-sm-1">
+                <button type="button" class="btn btn-danger" ng-click="removeNinja(ninja)"><span class="glyphicon glyphicon-remove"></span></button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item list-group-item-warning">
+            <form role="form" ng-submit="addNewNinja()">
+            <div class="row">
+              <div class="col-sm-1 col-sm-offset-1 form-group">
+                <input type="text" class="form-control" placeholder="Name" ng-model="newNinja.name" id="nameBar">
+              </div>
+              <div class="col-sm-1 form-group">
+                <input type="text" class="form-control" placeholder="Rate" ng-model="newNinja.rate" id="rateBar">
+              </div>
+              <div class="col-sm-1 form-group">
+                <input type="text" class="form-control" placeholder="Belt" ng-model="newNinja.belt" id="beltBar">
+              </div>
+              <div class="col-sm-1">
+                <button type="submit" class="btn btn-success">Add Ninja</button>
+              </div>
+            </div>
+            </form>
+          </li>
+        </ul>
+    </div>
+</div>
