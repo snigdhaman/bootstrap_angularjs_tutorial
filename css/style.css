@@ -6,11 +6,12 @@
 	  			   background-image : url("photo-1429051883746-afd9d56fbdaf 2.jpg");
 	  			   background-attachment: fixed;
 	  			   background-size: cover;
-	  			   margin-top: -10px; }
-	  	#section2 {padding-top:50px;height:100%;color: #fff; background-color: #2d2d30;}
-	  	#section3 {padding-top:50px;height:100%;color: #fff; background-color: #ff9800;}
+	  			   margin-top: -10px;
+             overflow: auto; }
+	  	#section2 {padding-top:50px;color: #fff; background-color: #2d2d30; overflow: auto;}
+	  	#section3 {padding-top:50px;height:100%;color: #fff; background-color: #ff9800; overflow: auto;}
 	  	.navbar {margin: 0; border-radius: 0;}
-	  	.jumbotron {margin: 0; background-color: gold; text-align: center; padding-top: 10px; padding-bottom: 10px;}
+	  	.jumbotron {margin: 0; background-color: orange; text-align: center; padding-top: 5px; padding-bottom: 5px;}
 	  	.affix {
 		    top:0;
 		    width: 100%;
