@@ -1,19 +1,30 @@
   	<style>
-  		html, body {height:100%; margin:0px;}
+  		html, body { height: 100%; width: 100%; margin: 0; }
 	  	#section1 {padding-top : 50px ;
-	  			   height : 100% ;
+	  			   height: 55vh;
+             width: 100%;
 	  			   color : #fff ;
-	  			   background-image : url("photo-1429051883746-afd9d56fbdaf 2.jpg");
+	  			   background-image : url("ninja.jpg");
 	  			   background-attachment: fixed;
 	  			   background-size: cover;
-	  			   margin-top: -10px;
-             overflow: auto; }
-	  	#section2 {padding-top:50px;color: #fff; background-color: #2d2d30; overflow: auto;}
-	  	#section3 {padding-top:50px;height:100%;color: #fff; background-color: #ff9800; overflow: auto;}
+             overflow: auto;
+             margin-top: -58px;}
+      #sectionUs {
+        background-color: orange; overflow: auto; #fff; min-height: 60vh; padding-left: 20px;
+      }
+	  	#section2 {padding-top:50px;
+        color: #fff;
+        background-image : url("ninja.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        overflow: auto;
+        margin-top: -58px;
+        min-height: 100vh}
+	  	#section3 {padding-top:50px;height:100vh;width:100%;color: #fff; background-color: #ff9800; overflow: auto;margin-top: -58px;}
 	  	.navbar {margin: 0; border-radius: 0;}
 	  	.jumbotron {margin: 0; background-color: orange; text-align: center; padding-top: 5px; padding-bottom: 5px;}
 	  	.affix {
-		    top:0;
+		    top: 0;
 		    width: 100%;
 		    z-index: 9999 !important;
 		}
@@ -21,6 +32,9 @@
 	    	position: relative;
 	    	top: 50px;
 	    }
+      .affix-top {
+        padding-top: 0px;
+      }
 	    .form-inline .form-group {
 		    margin-left: 0;
 		    margin-right: 0;
@@ -33,4 +47,44 @@
     top: 0;
     right: 15px;
     }
+    .thumb {
+      margin-left: 10px;
+      float: left;
+      width: 50px;
+    }
+  .nav-wrapper
+  {
+      min-height:110px;
+  }
+  main.ng-enter {
+    transition: 0.3s linear all;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  main.ng-enter.ng-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #ninja-list li.ng-enter {
+    transition: 0.3s linear all;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  #ninja-list li.ng-enter.ng-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #ninja-list li.ng-leave {
+    transition: 0.3s linear all;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  #ninja-list li.ng-leave.ng-leave-active {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  #ninja-list li.ng-leave-stagger {
+    transition-delay: 0.1s;
+    transition-duration: 0;
+  }
 	</style>

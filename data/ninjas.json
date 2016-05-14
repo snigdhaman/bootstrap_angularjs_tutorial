@@ -1,0 +1,10 @@
+[
+  {"name": "Ryu Hayabusa", "belt": "Black", "rate": 27000, "available": true, "thumbnail": "css/ryu.jpg"},
+  {"name": "Naruto Uzumaki", "belt": "Orange", "rate": 25000, "available": true, "thumbnail": "css/naruto.png"},
+  {"name": "Sasuke Uchiha", "belt": "Blue", "rate": 23000, "available": true, "thumbnail": "css/sasuke.png"},
+  {"name": "Kakashi Hatake", "belt": "Green", "rate": 30000, "available": true, "thumbnail": "css/kakashi.png"},
+  {"name": "Kasumi Hayabusa", "belt": "White", "rate": 50000, "available": true, "thumbnail": "css/kasumi.png"},
+  {"name": "Sakura Haruno", "belt": "Pink", "rate": 15000, "available": true, "thumbnail": "css/sakura.jpg"},
+  {"name": "Ino Yamanaka", "belt": "Purple", "rate": 10000, "available": true, "thumbnail": "css/ino.jpg"},
+  {"name": "Minato Namikaze", "belt": "Red", "rate": 100000, "available": true, "thumbnail": "css/minato.jpg"}
+]
