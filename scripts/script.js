@@ -1,6 +1,25 @@
 var app = angular.module ("demo", ['ngRoute', 'ngAnimate']);
 
+var myDataRef = new Firebase('https://potf3df73i4.firebaseio-demo.com/');
+
+app.factory('Contact', function(){
+	var contactInfo = {};
+ 	function set(data) {
+   contactInfo = data;
+ }
+ 	function get() {
+  	return contactInfo;
+ }
+ return {
+ set: set,
+ get: get
+}
+});
+
 app.config (['$routeProvider', function($routeProvider){
+
+	//$locationProvider.html5Mode(true);
+
 	$routeProvider
 		.when('/home', {
 			templateUrl: 'views/intro.html',
@@ -15,6 +34,11 @@ app.config (['$routeProvider', function($routeProvider){
 		})
 		.when('/section3', {
 			templateUrl: 'views/help.html',
+			controller: 'ContactController'
+		})
+		.when('/contact-success', {
+			templateUrl: 'views/contact-success.html',
+			controller: 'ContactController'
 		})
 		.otherwise({
 			redirectTo: '/home'
@@ -64,4 +88,19 @@ app.controller ("NinjaController", ['$scope','$http', function($scope, $http){
 	$scope.removeAll = function () {
 		$scope.ninjas = [];
 	};
+}]);
+
+app.controller ('ContactController', ['$scope','$location','Contact', function($scope, $location, Contact){
+
+	$scope.sendMessage = function (contact) {
+		//myDataRef.set({name: contact.name, email: contact.email, comment: contact.message});
+		Contact.set(contact);
+		$location.path('contact-success');
+	};
+}]);
+
+app.controller ('ContactSuccessController', ['$scope','Contact', function($scope, Contact){
+
+	$scope.contact = Contact.get();
+
 }]);
