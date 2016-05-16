@@ -10,7 +10,7 @@
              overflow: auto;
              margin-top: -58px;}
       #sectionUs {
-        background-color: orange; overflow: auto; #fff; min-height: 60vh; padding-left: 20px;
+        background-color: #ff9800; overflow: auto; #fff; min-height: 60vh; padding-left: 20px;
       }
 	  	#section2 {padding-top:50px;
         color: #fff;
@@ -21,8 +21,9 @@
         margin-top: -58px;
         min-height: 100vh}
 	  	#section3 {padding-top:50px;height:100vh;width:100%;color: #fff; background-color: #ff9800; overflow: auto;margin-top: -58px;}
+      #section4 {padding-top:50px;height:100vh;width:100%;color: black; background-color: #ff9800; overflow: auto;margin-top: -58px; text-align: center}
 	  	.navbar {margin: 0; border-radius: 0;}
-	  	.jumbotron {margin: 0; background-color: orange; text-align: center; padding-top: 5px; padding-bottom: 5px;}
+	  	.jumbotron {margin: 0; background-color: #ff9800; text-align: center; padding-top: 5px; padding-bottom: 5px;}
 	  	.affix {
 		    top: 0;
 		    width: 100%;
@@ -86,5 +87,17 @@
   #ninja-list li.ng-leave-stagger {
     transition-delay: 0.1s;
     transition-duration: 0;
+  }
+  label {
+    color: black;
+  }
+  input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty {
+    border: 2px solid red;
+  }
+  small.error-msg {
+    color: red;
+    display: block;
+    text-align: left;
+    padding-top: 5px;
   }
 	</style>
